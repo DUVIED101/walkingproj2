@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(28 14% 11%);
+  --card: hsl(249 6.7% 97.1%);
+  --card-foreground: hsl(28 14% 11%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(28 14% 11%);
+  --primary: hsl(210 100% 50%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(28 14% 11%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(240 3.7% 95.9%);
+  --muted-foreground: hsl(210 2.9% 55.3%);
+  --accent: hsl(210 6% 95.3%);
+  --accent-foreground: hsl(210 100% 50%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210 6% 95.3%);
+  --input: hsl(210 6% 95.3%);
+  --ring: hsl(210 100% 50%);
+  --chart-1: hsl(210 100% 50%);
+  --chart-2: hsl(120 100% 50%);
+  --chart-3: hsl(39 100% 50%);
+  --chart-4: hsl(120 60% 50%);
+  --chart-5: hsl(340 75% 50%);
+  --sidebar: hsl(249 6.7% 97.1%);
+  --sidebar-foreground: hsl(28 14% 11%);
+  --sidebar-primary: hsl(210 100% 50%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(210 6% 95.3%);
+  --sidebar-accent-foreground: hsl(210 100% 50%);
+  --sidebar-border: hsl(210 6% 90.6%);
+  --sidebar-ring: hsl(210 100% 50%);
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 1.3rem;
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.1);
+  --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0px 4px 6px -1px hsl(0 0% 0% / 0.1), 0px 2px 4px -2px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0px 10px 15px -3px hsl(0 0% 0% / 0.1), 0px 4px 6px -4px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0px 20px 25px -5px hsl(0 0% 0% / 0.1), 0px 8px 10px -6px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0px 25px 50px -12px hsl(0 0% 0% / 0.25);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  
+  /* iOS-specific colors */
+  --ios-blue: hsl(210 100% 50%);
+  --ios-green: hsl(120 63% 49%);
+  --ios-orange: hsl(25 100% 50%);
+  --ios-red: hsl(5 78% 57%);
+  --ios-gray: hsl(240 3.7% 15.9%);
+  --ios-light-gray: hsl(240 9% 89%);
+  --ios-dark: hsl(28 14% 11%);
+}
+
+.dark {
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(200 6.7% 91.2%);
+  --card: hsl(228 9.8% 10%);
+  --card-foreground: hsl(0 0% 85.1%);
+  --popover: hsl(0 0% 0%);
+  --popover-foreground: hsl(200 6.7% 91.2%);
+  --primary: hsl(210 89% 53%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195 15% 95%);
+  --secondary-foreground: hsl(28 14% 11%);
+  --muted: hsl(0 0% 9.4%);
+  --muted-foreground: hsl(210 3.4% 46.3%);
+  --accent: hsl(205 70% 7.8%);
+  --accent-foreground: hsl(210 89% 53%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210 5.3% 14.9%);
+  --input: hsl(207 27.7% 18.4%);
+  --ring: hsl(210 100% 50%);
+  --chart-1: hsl(210 100% 50%);
+  --chart-2: hsl(120 100% 50%);
+  --chart-3: hsl(39 100% 50%);
+  --chart-4: hsl(120 60% 50%);
+  --chart-5: hsl(340 75% 50%);
+  --sidebar: hsl(228 9.8% 10%);
+  --sidebar-foreground: hsl(0 0% 85.1%);
+  --sidebar-primary: hsl(210 100% 50%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(205 70% 7.8%);
+  --sidebar-accent-foreground: hsl(210 89% 53%);
+  --sidebar-border: hsl(205 15.8% 26.1%);
+  --sidebar-ring: hsl(210 100% 50%);
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 1.3rem;
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.1);
+  --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0px 4px 6px -1px hsl(0 0% 0% / 0.1), 0px 2px 4px -2px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0px 10px 15px -3px hsl(0 0% 0% / 0.1), 0px 4px 6px -4px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0px 20px 25px -5px hsl(0 0% 0% / 0.1), 0px 8px 10px -6px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0px 25px 50px -12px hsl(0 0% 0% / 0.25);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  .route-card {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .route-card:active {
+    transform: scale(0.98);
+  }
+
+  .tab-transition {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .ios-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .ios-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Safe area handling for iOS */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 44px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 34px);
+  }
+
+  /* Mobile-first responsive utilities */
+  .mobile-container {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+}
