@@ -1,22 +1,43 @@
+/**
+ * RouteWise Server
+ * 
+ * Main Express.js server that serves both the API and static frontend.
+ * Handles request logging, error handling, and API routing.
+ * 
+ * Key Features:
+ * - Development: Vite dev server integration
+ * - Production: Static file serving from dist/
+ * - Request/response logging for API calls
+ * - REST API for route and user management
+ * - TypeScript support with proper error handling
+ */
+
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
+// Initialize Express app with middleware
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json()); // Parse JSON request bodies
+app.use(express.urlencoded({ extended: false })); // Parse URL-encoded bodies
 
+/**
+ * Request Logging Middleware
+ * Logs API requests with timing and response data for development debugging
+ */
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
   let capturedJsonResponse: Record<string, any> | undefined = undefined;
 
+  // Capture JSON responses for logging
   const originalResJson = res.json;
   res.json = function (bodyJson, ...args) {
     capturedJsonResponse = bodyJson;
     return originalResJson.apply(res, [bodyJson, ...args]);
   };
 
+  // Log API requests when response finishes
   res.on("finish", () => {
     const duration = Date.now() - start;
     if (path.startsWith("/api")) {
@@ -25,6 +46,7 @@ app.use((req, res, next) => {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
 
+      // Truncate long log lines for readability
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }

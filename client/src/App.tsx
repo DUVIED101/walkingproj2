@@ -1,3 +1,16 @@
+/**
+ * RouteWise Main App Component
+ * 
+ * Root component that sets up routing, global providers, and mobile-optimized layout.
+ * Uses Wouter for lightweight routing and TanStack Query for server state management.
+ * 
+ * Key Features:
+ * - Mobile-first responsive design
+ * - Client-side routing for SPA experience
+ * - Global error boundary and toast notifications
+ * - Query client for API state management
+ */
+
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -10,15 +23,19 @@ import Camera from "@/pages/camera";
 import Profile from "@/pages/profile";
 import NotFound from "@/pages/not-found";
 
+/**
+ * Router Configuration
+ * Defines all application routes for the mobile-first SPA
+ */
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/route/:id" component={RouteDetail} />
-      <Route path="/map/:id?" component={Map} />
-      <Route path="/camera/:routeId/:stopId?" component={Camera} />
-      <Route path="/profile" component={Profile} />
-      <Route component={NotFound} />
+      <Route path="/" component={Home} />                                    {/* Route discovery page */}
+      <Route path="/route/:id" component={RouteDetail} />                   {/* Individual route details */}
+      <Route path="/map/:id?" component={Map} />                           {/* Navigation interface */}
+      <Route path="/camera/:routeId/:stopId?" component={Camera} />         {/* Photo capture */}
+      <Route path="/profile" component={Profile} />                        {/* User profile */}
+      <Route component={NotFound} />                                       {/* 404 fallback */}
     </Switch>
   );
 }

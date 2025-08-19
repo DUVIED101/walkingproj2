@@ -1,3 +1,18 @@
+/**
+ * RouteWise API Routes
+ * 
+ * Defines all REST API endpoints for the RouteWise platform.
+ * Handles route discovery, user management, and progress tracking.
+ * 
+ * API Structure:
+ * - GET  /api/routes - Route discovery with filtering
+ * - GET  /api/routes/:id - Individual route details
+ * - POST /api/routes - Create new routes (admin)
+ * - User progress and saved routes management
+ * 
+ * All endpoints include proper error handling and input validation.
+ */
+
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
@@ -5,7 +20,11 @@ import { insertRouteSchema, insertUserRouteProgressSchema, insertSavedRouteSchem
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Routes API
+  /**
+   * GET /api/routes - Route Discovery
+   * Returns filtered routes based on query parameters
+   * Supports filtering by category, duration, distance, and difficulty
+   */
   app.get("/api/routes", async (req, res) => {
     try {
       const { category, duration, distance, difficulty } = req.query;
