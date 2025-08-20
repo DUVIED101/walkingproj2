@@ -11,8 +11,34 @@ export default function RouteDetail() {
   const { id } = useParams();
 
   const { data: route, isLoading, error } = useQuery<Route>({
-    queryKey: ["/api/routes", id],
+    queryKey: [`/api/routes/${id}`],
   });
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Skeleton className="w-full h-72" />
+        <div className="bg-white rounded-t-3xl -mt-8 relative pt-8 px-6">
+          <Skeleton className="h-8 w-3/4 mb-4" />
+          <Skeleton className="h-4 w-full mb-2" />
+          <Skeleton className="h-4 w-2/3 mb-6" />
+          <Skeleton className="h-24 w-full mb-6" />
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex items-center space-x-3">
+                <Skeleton className="w-8 h-8 rounded-full" />
+                <Skeleton className="w-12 h-12 rounded-lg" />
+                <div className="flex-1">
+                  <Skeleton className="h-4 w-3/4 mb-1" />
+                  <Skeleton className="h-3 w-full" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (error) {
     return (
