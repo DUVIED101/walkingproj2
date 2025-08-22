@@ -24,6 +24,8 @@ A comprehensive travel route discovery platform with AI-generated walking tours,
    - Manual route creation by experts
    - Price filtering for premium routes
    - Future: On-demand route generation (v2+)
+   good
+
 
 2. **Route Categories**
    - Food and drink
