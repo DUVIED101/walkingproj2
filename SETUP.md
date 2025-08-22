@@ -32,6 +32,7 @@ npm install
 ```
 This will install all frontend and backend dependencies defined in `package.json`.
 
+
 ### 3. Start Development Server
 ```bash
 npm run dev
